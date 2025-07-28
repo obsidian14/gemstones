@@ -1,0 +1,8 @@
+/home/phobos/Projects/gemstones/src/build/CMakeFiles/test.dir
+/home/phobos/Projects/gemstones/src/build/CMakeFiles/edit_cache.dir
+/home/phobos/Projects/gemstones/src/build/CMakeFiles/rebuild_cache.dir
+/home/phobos/Projects/gemstones/src/build/core/CMakeFiles/core.dir
+/home/phobos/Projects/gemstones/src/build/core/CMakeFiles/all_test.dir
+/home/phobos/Projects/gemstones/src/build/core/CMakeFiles/test.dir
+/home/phobos/Projects/gemstones/src/build/core/CMakeFiles/edit_cache.dir
+/home/phobos/Projects/gemstones/src/build/core/CMakeFiles/rebuild_cache.dir

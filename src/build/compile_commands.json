@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/phobos/Projects/gemstones/src/build",
+  "command": "/usr/bin/clang++ -g -std=gnu++20 -Wall -Wextra -Werror -fno-exceptions -fno-rtti @core/CMakeFiles/core.dir/core.cpp.o.modmap -o core/CMakeFiles/core.dir/core.cpp.o -c /home/phobos/Projects/gemstones/src/core/core.cpp",
+  "file": "/home/phobos/Projects/gemstones/src/core/core.cpp",
+  "output": "core/CMakeFiles/core.dir/core.cpp.o"
+},
+{
+  "directory": "/home/phobos/Projects/gemstones/src/build",
+  "command": "/usr/bin/clang++ -g -std=gnu++20 -Wall -Wextra -Werror -fno-exceptions -fno-rtti @core/CMakeFiles/all_test.dir/all_test.cpp.o.modmap -o core/CMakeFiles/all_test.dir/all_test.cpp.o -c /home/phobos/Projects/gemstones/src/core/all_test.cpp",
+  "file": "/home/phobos/Projects/gemstones/src/core/all_test.cpp",
+  "output": "core/CMakeFiles/all_test.dir/all_test.cpp.o"
+}
+]

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250727-1010-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.31.6"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="ares"
+	OSRelease="6.15.7-200.fc42.x86_64"
+	OSVersion="#1 SMP PREEMPT_DYNAMIC Thu Jul 17 17:57:16 UTC 2025"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="AuthenticAMD"
+	VendorID="Advanced Micro Devices"
+	FamilyID="23"
+	ModelID="24"
+	ModelName="AMD Ryzen 5 3500U with Radeon Vega Mobile Gfx"
+	ProcessorCacheSize="512"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="5860"
+	TotalPhysicalMemory="5861"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2288.86"
+	>
+	<Testing>
+		<StartDateTime>Jul 27 18:16 CST</StartDateTime>
+		<StartTestTime>1753611419</StartTestTime>
+		<TestList/>
+		<EndDateTime>Jul 27 18:16 CST</EndDateTime>
+		<EndTestTime>1753611419</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
