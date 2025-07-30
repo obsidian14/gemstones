@@ -1,8 +1,37 @@
 #ifndef GEMSTONES_CORE_H_
 #define GEMSTONES_CORE_H_
+
 #include <concepts>
 #include <cstdint>
+
 namespace gemstones {
+template <typename T> class Default {};
+
+template <::std::signed_integral T> class Default<T> {
+public:
+  static constexpr T default_value() { return 0; }
+};
+
+template <::std::unsigned_integral T> class Default<T> {
+public:
+  static constexpr T default_value() { return 0U; }
+};
+
+template <> class Default<float> {
+public:
+  static constexpr float default_value() { return 0.0F; }
+};
+
+template <> class Default<double> {
+public:
+  static constexpr double default_value() { return 0.0; }
+};
+
+template <> class Default<long double> {
+public:
+  static constexpr long double default_value() { return 0.0L; }
+};
+
 /**
  * The signed integer type.
  */
@@ -69,7 +98,7 @@ private:
   /**
    * The signed integer value.
    */
-  T value_ = 0;
+  T value_ = Default<T>::default_value();
 };
 
 /**
@@ -202,7 +231,7 @@ private:
   /**
    * An unsigned integer value.
    */
-  T value_ = 0U;
+  T value_ = Default<T>::default_value();
 };
 
 /**
@@ -235,114 +264,85 @@ using UInt64 = UInt<::std::uint64_t>;
 using UIntPtr = UInt<::std::uintptr_t>;
 
 /**
- * A 32-bit floating-point type (specifically, the “binary32” type defined in
- * IEEE 754-2008).
+ * A floating-point type.
  */
-class Float32 {
+template <::std::floating_point T> class Float {
 public:
   /**
    * Default constructor.
    */
-  Float32() = default;
+  constexpr Float() = default;
 
   /**
-   * Constructor with a 32-bit floating-point value.
+   * Constructor with a floating-point value.
    */
-  explicit Float32(float value);
+  constexpr explicit Float(T value) : value_(value) {}
 
   /**
-   * Cast to other floating-point type.
+   * Constructor with a floating-point value.
    */
-  template <::std::floating_point T> T into() const {
-    return static_cast<T>(value_);
+  template <::std::floating_point U> constexpr U into() const {
+    return static_cast<U>(value_);
   }
 
   /**
    * Performs the unary - operation.
    */
-  Float32 neg() const;
+  constexpr Float neg() const { return Float(-value_); }
 
   /**
    * Performs the + operation.
    */
-  Float32 add(const Float32 &other) const;
+  constexpr Float add(const Float &other) const {
+    return Float(value_ + other.value_);
+  }
 
   /**
    * Performs the - operation.
    */
-  Float32 sub(const Float32 &other) const;
+  constexpr Float sub(const Float &other) const {
+    return Float(value_ - other.value_);
+  }
 
   /**
    * Performs the * operation.
    */
-  Float32 mul(const Float32 &other) const;
+  constexpr Float mul(const Float &other) const {
+    return Float(value_ * other.value_);
+  }
 
   /**
    * Performs the / operation.
    */
-  Float32 div(const Float32 &other) const;
+  constexpr Float div(const Float &other) const {
+    return Float(value_ / other.value_);
+  }
 
 private:
   /**
-   * A 32-bit floating-point value.
+   * A floating-point value.
    */
-  float value_ = 0.0F;
+  T value_ = Default<T>::default_value();
 };
+
+/**
+ * A 32-bit floating-point type (specifically, the “binary32” type defined in
+ * IEEE 754-2008).
+ */
+using Float32 = Float<float>;
 
 /**
  * A 64-bit floating-point type (specifically, the “binary64” type defined in
  * IEEE 754-2008).
  */
-class Float64 {
-public:
-  /**
-   * Default constructor.
-   */
-  Float64() = default;
+using Float64 = Float<double>;
 
-  /**
-   * Constructor with a 64-bit floating-point value.
-   */
-  explicit Float64(double value);
-
-  /**
-   * Cast to other floating-point type.
-   */
-  template <::std::floating_point T> T into() const {
-    return static_cast<T>(value_);
-  }
-
-  /**
-   * Performs the unary - operation.
-   */
-  Float64 neg() const;
-
-  /**
-   * Performs the + operation.
-   */
-  Float64 add(const Float64 &other) const;
-
-  /**
-   * Performs the - operation.
-   */
-  Float64 sub(const Float64 &other) const;
-
-  /**
-   * Performs the * operation.
-   */
-  Float64 mul(const Float64 &other) const;
-
-  /**
-   * Performs the / operation.
-   */
-  Float64 div(const Float64 &other) const;
-
-private:
-  /**
-   * A 64-bit floating-point value.
-   */
-  double value_ = 0.0;
-};
+/**
+ * A 128-bit floating-point type (specifically, the “binary128” type defined in
+ * IEEE 754-2008).
+ */
+using Float128 = Float<long double>;
 
 } // namespace gemstones
+
 #endif
