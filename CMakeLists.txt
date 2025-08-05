@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.30)
+project(gemstones)
+add_library(${PROJECT_NAME})
+target_sources(
+    ${PROJECT_NAME}
+    PRIVATE
+    src/unicode.cpp
+)
+target_include_directories(
+    ${PROJECT_NAME}
+    PUBLIC
+    include
+)
+target_compile_features(
+    ${PROJECT_NAME}
+    PUBLIC
+    cxx_std_20
+)
+target_compile_options(
+    ${PROJECT_NAME}
+    PUBLIC
+    -Wall
+    -Wextra
+    -Werror
+    -fno-exceptions
+    -fno-rtti
+)
